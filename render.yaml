@@ -1,0 +1,41 @@
+services:
+  - type: web
+    name: vsms-backend
+    env: docker
+    plan: free
+    rootDir: demo
+    dockerfilePath: Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: prod
+      - key: DB_HOST
+        fromDatabase:
+          name: vsms-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: vsms-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: vsms-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: vsms-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: vsms-db
+          property: password
+      - key: SPRING_SALTVALUE
+        sync: false
+      - key: ALLOWED_ORIGIN
+        sync: false
+
+databases:
+  - name: vsms-db
+    databaseName: vsms_db
+    user: vsms_user
+    plan: free

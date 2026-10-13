@@ -26,7 +26,7 @@ public interface ServiceRequestRepository extends JpaRepository<ServiceRequest, 
 	@Query("select count(*) from ServiceRequest sr where servicdate=:date and servicecenterid=:servc")
 	public Integer getAllServReqOnADateforSC(Date date,ServiceCenter servc);
 	
-	@Query(nativeQuery =true,value ="select * from servicerequests where vehicleid in (:vehs)")
+	@Query("select sr from ServiceRequest sr where sr.vehid in :vehs")
 	public List<ServiceRequest> getSerReqsByCid(@Param("vehs") List<Vehicle> vehs);
 	
 	@Modifying

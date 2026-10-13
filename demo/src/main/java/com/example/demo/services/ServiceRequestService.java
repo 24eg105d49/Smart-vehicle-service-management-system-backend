@@ -44,6 +44,9 @@ public class ServiceRequestService {
 	
 	public List<ServiceRequest> getSerReqsByCid(List<Vehicle> vehs)
 	{
+		if (vehs == null || vehs.isEmpty()) {
+			return java.util.Collections.emptyList();
+		}
 		return servrepo.getSerReqsByCid(vehs);
 	}
 	

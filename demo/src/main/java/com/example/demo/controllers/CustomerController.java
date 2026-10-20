@@ -29,8 +29,9 @@ import com.example.demo.services.LoginService;
 import com.example.demo.services.RoleService;
 
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
+
 public class CustomerController {
 	@Autowired
 	CustomerService custserv;

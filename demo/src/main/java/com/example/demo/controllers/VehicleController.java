@@ -22,8 +22,9 @@ import com.example.demo.services.BrandService;
 import com.example.demo.services.CustomerService;
 import com.example.demo.services.VehicleService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
+
 public class VehicleController {
 
 	@Autowired

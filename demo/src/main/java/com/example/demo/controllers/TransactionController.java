@@ -13,8 +13,9 @@ import com.example.demo.entities.TransactionDummy;
 import com.example.demo.services.ServiceProgressService;
 import com.example.demo.services.TransactionService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
+
 public class TransactionController {
 
 	

@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entities.Question;
 import com.example.demo.services.QuestionService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
+
 public class QuestionController {
 
 	@Autowired

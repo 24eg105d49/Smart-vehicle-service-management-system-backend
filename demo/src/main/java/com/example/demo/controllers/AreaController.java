@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entities.Area;
 import com.example.demo.services.AreaService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
+
 public class AreaController {
 
 	@Autowired

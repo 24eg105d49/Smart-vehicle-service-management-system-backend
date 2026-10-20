@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entities.City;
 import com.example.demo.services.CityService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
+
 public class CityController {
 	@Autowired
 	CityService cityserv;

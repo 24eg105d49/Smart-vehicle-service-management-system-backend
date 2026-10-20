@@ -25,8 +25,9 @@ import com.example.demo.entities.SaltValue;
 import com.example.demo.services.LoginService;
 import com.example.demo.services.QuestionService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
+
 public class LoginController {
 	
 	@Autowired

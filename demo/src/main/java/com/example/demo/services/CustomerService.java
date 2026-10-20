@@ -32,14 +32,27 @@ public class CustomerService {
 	
 	public Customer getByLoginid(String loginid)
 	{
-		Customer customer;
-		Optional<Customer> cust=custrepo.getByLoginid(loginid);
+		if (loginid == null || loginid.trim().isEmpty() || "null".equalsIgnoreCase(loginid.trim())) {
+			return null;
+		}
+		String trimmed = loginid.trim();
 		try {
-			customer=cust.get();
+			int id = Integer.parseInt(trimmed);
+			Optional<Customer> cust = custrepo.getByLoginidInt(id);
+			if (cust.isPresent()) {
+				return cust.get();
+			}
+		} catch (NumberFormatException e) {
+			// Not a numeric ID, fall through to lookup by username (userid)
 		}
-		catch(Exception e) {
-			customer=null;
-		}
-		return customer;
+
+		Optional<Customer> custByUser = custrepo.getByUserId(trimmed);
+		return custByUser.orElse(null);
+	}
+
+	public Customer getByLoginidInt(int loginid)
+	{
+		return custrepo.getByLoginidInt(loginid).orElse(null);
 	}
 }
+

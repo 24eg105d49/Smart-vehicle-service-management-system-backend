@@ -58,7 +58,13 @@ public class ServiceCenterService {
 	
 	public ServiceCenter getDetailsByLoginid(Login login)
 	{
+		if (login == null) return null;
 		return screpo.getDetailsByLoginid(login);
 	}
 	
+	public ServiceCenter getDetailsByLoginIdNumber(int loginid)
+	{
+		return screpo.getDetailsByLoginIdNumber(loginid);
+	}
 }
+

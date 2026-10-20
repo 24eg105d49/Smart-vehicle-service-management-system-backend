@@ -25,8 +25,9 @@ import com.example.demo.services.FacilityService;
 import com.example.demo.services.PackageDetailsService;
 import com.example.demo.services.ServiceCenterService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
+
 public class PackageDetailsController {
 
 	@Autowired

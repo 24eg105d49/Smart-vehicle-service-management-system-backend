@@ -16,8 +16,9 @@ import com.example.demo.services.ServiceCenterService;
 import com.example.demo.services.ServiceProgressService;
 import com.example.demo.services.ServiceRequestService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
+
 public class ServiceProgressController {
 
 	@Autowired

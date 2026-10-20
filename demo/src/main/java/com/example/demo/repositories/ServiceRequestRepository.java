@@ -15,21 +15,21 @@ import com.example.demo.entities.ServiceCenter;
 import com.example.demo.entities.ServiceRequest;
 import com.example.demo.entities.Vehicle;
 
-
 @Repository
 @Transactional
 public interface ServiceRequestRepository extends JpaRepository<ServiceRequest, Integer> {
 
-	@Query("select sr from ServiceRequest sr where servicdate=:date and servicecenterid=:sc")
-	public List<ServiceRequest> getAllServiceReqsByDateSc(Date date,ServiceCenter sc);
+	@Query("select sr from ServiceRequest sr where sr.servicdate = :date and sr.scid = :sc")
+	public List<ServiceRequest> getAllServiceReqsByDateSc(@Param("date") Date date, @Param("sc") ServiceCenter sc);
 	
-	@Query("select count(*) from ServiceRequest sr where servicdate=:date and servicecenterid=:servc")
-	public Integer getAllServReqOnADateforSC(Date date,ServiceCenter servc);
+	@Query("select count(sr) from ServiceRequest sr where sr.servicdate = :date and sr.scid = :servc")
+	public Integer getAllServReqOnADateforSC(@Param("date") Date date, @Param("servc") ServiceCenter servc);
 	
 	@Query("select sr from ServiceRequest sr where sr.vehid in :vehs")
 	public List<ServiceRequest> getSerReqsByCid(@Param("vehs") List<Vehicle> vehs);
 	
 	@Modifying
-	@Query("Update ServiceRequest set status=true where servicerequestid=:servicerequestid")
-	public int changeStatus(int servicerequestid);
+	@Query("Update ServiceRequest set status=true where servicerequestid = :servicerequestid")
+	public int changeStatus(@Param("servicerequestid") int servicerequestid);
 }
+

@@ -17,8 +17,9 @@ import com.example.demo.services.InvoiceService;
 import com.example.demo.services.ServiceRequestService;
 import com.example.demo.services.TransactionService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
+
 public class InvoiceController {
 
 	@Autowired

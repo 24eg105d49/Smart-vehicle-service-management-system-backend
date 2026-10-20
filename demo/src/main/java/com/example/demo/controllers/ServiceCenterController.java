@@ -30,8 +30,9 @@ import com.example.demo.services.LoginService;
 import com.example.demo.services.RoleService;
 import com.example.demo.services.ServiceCenterService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
+
 public class ServiceCenterController {
 	@Autowired
 	ServiceCenterService scserv;
@@ -70,9 +71,12 @@ public class ServiceCenterController {
 	@GetMapping("/getScDetailsByLoginid")
 	public ServiceCenter getDetailsByLoginid(@RequestParam("loginid") int loginid)
 	{
-		Login login=loginserv.getLoginByLoginid(loginid);
+		ServiceCenter sc = scserv.getDetailsByLoginIdNumber(loginid);
+		if (sc != null) return sc;
+		Login login = loginserv.getLoginByLoginid(loginid);
 		return scserv.getDetailsByLoginid(login);
 	}
+
 	
 	@GetMapping("/getScByBrandArea")
 	public List<ServiceCenter> getScByBrandArea(@RequestParam("bid") int brandid, @RequestParam("aid")int areaid)

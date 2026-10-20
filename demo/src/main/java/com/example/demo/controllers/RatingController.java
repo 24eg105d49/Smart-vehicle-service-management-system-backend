@@ -23,8 +23,9 @@ import com.example.demo.services.RatingService;
 import com.example.demo.services.RoleService;
 import com.example.demo.services.ServiceCenterService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
+
 public class RatingController {
 
 	@Autowired

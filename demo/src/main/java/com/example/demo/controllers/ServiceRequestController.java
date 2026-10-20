@@ -31,8 +31,9 @@ import com.example.demo.services.ServiceCenterService;
 import com.example.demo.services.ServiceRequestService;
 import com.example.demo.services.VehicleService;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 @RestController
+
 public class ServiceRequestController {
 	@Autowired
 	ServiceRequestService servservice;
